@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">myRecipe</string>
+    <string name="action_search">Find Ingredients</string>
+</resources>

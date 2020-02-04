@@ -1,0 +1,12 @@
+{
+  "name": "Broccoli",
+  "image": "https://image.tmdb.org/",
+  "nutrition": {
+    "calories": 31,
+    "protein": 2.5,
+    "Carbs": 6,
+    "Sugar": 1.5,
+    "Fiber": 2.4,
+    "Fat": 0.4
+  }
+}
