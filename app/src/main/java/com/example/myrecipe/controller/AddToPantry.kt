@@ -1,5 +1,6 @@
 package com.example.myrecipe.controller
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -56,12 +57,12 @@ class AddToPantry : AppCompatActivity() {
 
     }
 
-    fun onNextClicked(view:View){
+/*    fun onNextClicked(view:View){
         Toast.makeText(this, "SIZE : ${rvIngredientList.size}", Toast.LENGTH_SHORT).show()
         var testArr:MutableList<IngredientTest> = mutableListOf<IngredientTest>()
         rvIngredientList.forEach { item ->
             println("\nITEM NAME: ${item.cbItemName.text}")
-        }
+        }*/
 //        for (item in 0..rvIngredientList.size){
 //            if(rvIngredientList[item].cbItemName.isChecked) {
 //              ///  testArr.add(DataServices.ingredientsList[item])
@@ -72,12 +73,11 @@ class AddToPantry : AppCompatActivity() {
             Toast.makeText(this, "im CHECKED", Toast.LENGTH_SHORT).show()
         }*/
 
-        /*fun onNextClicked(view:View){
+        fun onNextClicked(view:View){
             myAdapter.selectedList.forEach { item ->
                 println("\nITEM NAME: ${item.name}")
             }
-            val selectRecipeIntent = Intent(this, selectRecipe::class.java)
+            val selectRecipeIntent = Intent(this, SelectRecipes::class.java)
             startActivity(selectRecipeIntent)
-        }*/
-    }
+        }
 }

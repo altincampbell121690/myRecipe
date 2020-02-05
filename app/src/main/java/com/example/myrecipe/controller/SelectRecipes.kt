@@ -1,12 +1,10 @@
-
 package com.example.myrecipe.controller
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import com.example.myrecipe.R
 
-class selectRecipe : AppCompatActivity() {
+class SelectRecipes : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,4 +19,3 @@ class selectRecipe : AppCompatActivity() {
         return true
     }
 }
-

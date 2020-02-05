@@ -8,7 +8,7 @@ import android.os.Parcelable
 
 @SuppressLint("ParcelCreator")
 @Parcelize
-data class Ingredient(
+data class IngredientGET(
     @SerializedName("image")
     val image: String,
     @SerializedName("name")
