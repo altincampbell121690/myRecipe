@@ -71,5 +71,13 @@ class AddToPantry : AppCompatActivity() {
       /*  if (rvIngredientList[0].cbItemName.isChecked){
             Toast.makeText(this, "im CHECKED", Toast.LENGTH_SHORT).show()
         }*/
+
+        /*fun onNextClicked(view:View){
+            myAdapter.selectedList.forEach { item ->
+                println("\nITEM NAME: ${item.name}")
+            }
+            val selectRecipeIntent = Intent(this, selectRecipe::class.java)
+            startActivity(selectRecipeIntent)
+        }*/
     }
 }

@@ -10,5 +10,8 @@ object DataServices {
         IngredientTest("Lamb Shank","lamb"),
         IngredientTest("Carrot","carrot"),
         IngredientTest("Cheddar Cheese", "cheddar_cheese")
-        )
+    )
+
+    // not safe!
+    val selectedIngredientsList = mutableListOf<IngredientTest>()
 }
