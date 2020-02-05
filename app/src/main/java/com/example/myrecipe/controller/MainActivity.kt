@@ -6,14 +6,15 @@ import android.os.Bundle
 import android.view.View
 
 import com.example.myrecipe.R
+import com.example.myrecipe.services.DataServices
+import com.example.myrecipe.utils.INGREDIENTS
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
+        DataServices.getIngredientListFull(INGREDIENTS)
 
     }
 

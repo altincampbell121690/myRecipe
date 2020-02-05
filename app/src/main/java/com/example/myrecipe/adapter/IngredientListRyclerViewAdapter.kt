@@ -13,32 +13,35 @@ import com.example.myrecipe.services.DataServices
 //class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>) : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(){
 //,val itemChecked: (CompoundButton, Boolean)-> Unit
 class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
+//class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>,val itemChecked: (CompoundButton, Boolean)-> Unit)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
     var copyIngredientList= ingredientList.filter{it == it}
     var selectedList = mutableListOf<IngredientTest>()
     inner class IngredientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val ingredientImage = itemView.findViewById<ImageView>(R.id.ivIngredient)
         val ingredientName = itemView.findViewById<CheckBox>(R.id.cbItemName)
 
-        fun bindIngredient(ingredient: IngredientTest?, context: Context){
+        fun bindIngredient(ingredient: IngredientTest?, context: Context, position: Int){
             val resourceId = context.resources.getIdentifier(ingredient?.image,"drawable", context.packageName)
             ingredientImage.setImageResource(resourceId)
             ingredientName.text = ingredient?.name
             ingredientName.setOnCheckedChangeListener { buttonView, isChecked ->
                 if(isChecked){
-                    Toast.makeText(context, "im checked", Toast.LENGTH_SHORT).show()
-                    //ingredient?.let { DataServices.selectedIngredientsList.add(it) }
-
-                    ingredient?.let { selectedList.add(it) }
-                }
-
-                else {
+                  //DEBUG  Toast.makeText(context, "im checked", Toast.LENGTH_SHORT).show()
+                    ingredient?.let { it: IngredientTest -> // if ingredient not null
+                        if (!selectedList.contains(it))
+                            selectedList.add(it)
+                        }
+                    ingredientList[position].isChecked = isChecked
+                } else {
                     Toast.makeText(context, "NOT checked", Toast.LENGTH_SHORT).show()
                     selectedList.remove(ingredient)
+                    ingredientList[position].isChecked = isChecked
+
                 }
             }
-            //ingredientName.setOnCheckedChangeListener(itemChecked)
+            // set ui value to obj checked value
+            ingredientName.isChecked = ingredientList[position].isChecked
         }
-
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
@@ -53,10 +56,9 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
     }
 
     override fun onBindViewHolder(myViewholder: IngredientViewHolder, position: Int) {
-        myViewholder.bindIngredient(ingredientList[position], context)
+        myViewholder.bindIngredient(ingredientList[position], context, position)
 
     }
-
 
     override fun getFilter(): Filter {
         return IngredientFilter()
@@ -84,7 +86,7 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
             ingredientList = mutableListOf()
             val list : List<Any?> = results?.values as List<Any?>
-            ingredientList.addAll(list as List<IngredientTest>)
+            ingredientList.addAll(list as List<IngredientTest>) // ignore.. required to be Ingredient above
             notifyDataSetChanged()
 
         }
