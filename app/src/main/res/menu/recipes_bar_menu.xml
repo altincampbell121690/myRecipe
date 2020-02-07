@@ -5,6 +5,6 @@
     tools:context=".controller.AddToPantry">
     <item android:id="@+id/recipes_bar"
         android:title="@string/fav_recipe_bar"
-        android:icon="@drawable/ic_favorite"
+        android:icon="@drawable/ic_favorite_checked"
         app:showAsAction="always|collapseActionView" />
 </menu>

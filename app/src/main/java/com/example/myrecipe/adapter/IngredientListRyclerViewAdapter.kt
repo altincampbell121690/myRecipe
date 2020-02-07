@@ -17,12 +17,12 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
     var copyIngredientList= ingredientList.filter{it == it}
     var selectedList = mutableListOf<IngredientTest>()
     inner class IngredientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val ingredientImage = itemView.findViewById<ImageView>(R.id.ivIngredient)
+       // val ingredientImage = itemView.findViewById<ImageView>(R.id.ivIngredient)
         val ingredientName = itemView.findViewById<CheckBox>(R.id.cbItemName)
 
         fun bindIngredient(ingredient: IngredientTest?, context: Context, position: Int){
             val resourceId = context.resources.getIdentifier(ingredient?.image,"drawable", context.packageName)
-            ingredientImage.setImageResource(resourceId)
+           // ingredientImage.setImageResource(resourceId)
             ingredientName.text = ingredient?.name
             ingredientName.setOnCheckedChangeListener { buttonView, isChecked ->
                 if(isChecked){
@@ -84,7 +84,8 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
         }
 
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            ingredientList = mutableListOf()
+            //ingredientList = mutableListOf()
+            ingredientList.clear()
             val list : List<Any?> = results?.values as List<Any?>
             ingredientList.addAll(list as List<IngredientTest>) // ignore.. required to be Ingredient above
             notifyDataSetChanged()

@@ -3,5 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alfa_slab_one</item>
         <item>@font/amiko_bold</item>
+        <item>@font/roboto_black</item>
+        <item>@font/roboto_condensed_regular</item>
+        <item>@font/roboto_medium</item>
+        <item>@font/roboto_thin</item>
     </array>
 </resources>
