@@ -9,8 +9,12 @@ class SelectRecipes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_recipe)
+        val actionBar = supportActionBar
         actionBar?.title = "Select"
-        supportActionBar?.setTitle("Take Back Your Kitchen");
+        actionBar?.setTitle("Take Back Your Kitchen");
+        actionBar!!.setDisplayShowHomeEnabled(true)
+        actionBar.setLogo(R.drawable.ic_logo_color)
+        actionBar.setDisplayUseLogoEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

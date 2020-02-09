@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         DataServices.getIngredientListFull(this, INGREDIENTS)
+        var actionBar = supportActionBar
+        actionBar!!.setDisplayShowHomeEnabled(true)
+        actionBar!!.setLogo(R.drawable.ic_logo_color)
+        actionBar!!.setDisplayUseLogoEnabled(true)
 
     }
 

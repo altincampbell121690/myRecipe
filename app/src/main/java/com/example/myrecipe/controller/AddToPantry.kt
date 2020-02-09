@@ -24,8 +24,13 @@ class AddToPantry : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_to_pantry)
+        var actionBar = supportActionBar
         actionBar?.title = "Ingredients"
-        supportActionBar?.setTitle("Find Ingredients");
+        actionBar?.setTitle("Find Ingredients")
+
+        actionBar!!.setDisplayShowHomeEnabled(true)
+        actionBar!!.setLogo(R.drawable.ic_logo_color)
+        actionBar!!.setDisplayUseLogoEnabled(true)
         myAdapter  = IngredientListRyclerViewAdapter(this,
             DataServices.ingredientsList
         )
@@ -65,6 +70,7 @@ class AddToPantry : AppCompatActivity() {
 
             println("${myAdapter.selectedList}")
             val selectRecipeIntent = Intent(this, SelectRecipes::class.java)
+
             startActivity(selectRecipeIntent)
         }
 }
