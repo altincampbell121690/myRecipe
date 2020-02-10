@@ -1,23 +1,24 @@
 package com.example.myrecipe.controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.forEach
-import androidx.core.view.get
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.RequestParams
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.myrecipe.R
 import com.example.myrecipe.adapter.IngredientListRyclerViewAdapter
-import com.example.myrecipe.model.IngredientTest
 import com.example.myrecipe.services.DataServices
+import com.example.myrecipe.utils.PARAMS
+import com.example.myrecipe.utils.PARAMS_BY_INGREDIENT_LIST
+import com.example.myrecipe.utils.PARAMS_BY_INGREDIENT_NUMBER
 import kotlinx.android.synthetic.main.activity_add_to_pantry.*
-import kotlinx.android.synthetic.main.ingredient_list_item.*
-import kotlinx.android.synthetic.main.ingredient_list_item.view.*
+import okhttp3.Headers
 
 class AddToPantry : AppCompatActivity() {
     lateinit var myAdapter : IngredientListRyclerViewAdapter
@@ -67,6 +68,27 @@ class AddToPantry : AppCompatActivity() {
             myAdapter.selectedList.forEach { item ->
                 println("\nITEM NAME: ${item.name}")
             }
+
+            val client = AsyncHttpClient()
+            val params = RequestParams()
+            //https://api.spoonacular.com/recipes/findByIngredients?apiKey=dcfa3c8d24e24e41989b9848b981b874&ingredients=apples,flour,sugar&number=2
+            params.put(PARAMS[PARAMS_BY_INGREDIENT_LIST], "apples,flour,sugar")
+            params.put(PARAMS[PARAMS_BY_INGREDIENT_NUMBER], "2")
+
+            client.get("https://api.spoonacular.com/recipes/findByIngredients?apiKey=dcfa3c8d24e24e41989b9848b981b874", params, object: JsonHttpResponseHandler() {
+                override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
+                    Log.d("ON NEXT CLICKED", "onSUCCESS")
+                    println(json)
+                }
+
+                override fun onFailure(statusCode: Int, headers: Headers?, response: String?, throwable: Throwable?) {
+                    Log.d("ON NEXT CLICKED", "onFAIL")
+                    println("statusCode: $statusCode\nHeaders: $headers\nResponse: $response\n\nTHROWABLE: $throwable")
+                }
+
+            })
+
+
 
             println("${myAdapter.selectedList}")
             val selectRecipeIntent = Intent(this, SelectRecipes::class.java)
