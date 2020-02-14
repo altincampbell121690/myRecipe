@@ -1,12 +1,14 @@
 package com.example.myrecipe.adapter
 
 import android.content.Context
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.alespero.expandablecardview.ExpandableCardView
 import com.bumptech.glide.Glide
 import com.example.myrecipe.R
 import com.example.myrecipe.model.RecipeFromIngredient
@@ -17,15 +19,23 @@ class RecipeCardAdapter(val context: Context, private val recipeList: ArrayList<
     inner class RecipeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val recipeImage = itemView.findViewById<ImageView>(R.id.ivRecipeCardImage)
         val recipeTitle = itemView.findViewById<TextView>(R.id.tvRecipeCardTitle)
-        val recipeInfo = itemView.findViewById<TextView>(R.id.tvRecipeInfo)
+        val recipeDetails = itemView.findViewById<ExpandableCardView>(R.id.ecDetails)
+        val numMissing = itemView.findViewById<TextView>(R.id.tvnumMissing)
+        val recipeInfo = itemView.findViewById<TextView>(R.id.tvMissingIngredients)
+
+        //val recipeInfo = itemView.findViewById<TextView>(R.id.tvRecipeInfo)
 
         fun bindView(recipeItem:RecipeFromIngredient){
+            recipeInfo.movementMethod = ScrollingMovementMethod()
             recipeTitle.text = recipeItem.title
             Glide.with(context).load(recipeItem.image).into(recipeImage)
-            var str = "Missing Ingredients: "
-            recipeItem.missedIngredients.forEach{str += " ${it.original}\n"}
-            recipeInfo.text = str
+            val numstr = recipeItem.missedIngredientCount
 
+            var str = "Missing Ingredients:\n"
+            recipeItem.missedIngredients.forEachIndexed{i, it -> str += "- ${i+1} ) ${it.original}\n"}
+            recipeInfo.text = str
+            numMissing.text = "You're missing ${numstr.toString()} items"
+            println(numMissing.text)
 
 
             itemView.setOnClickListener{
