@@ -16,11 +16,11 @@ const val PARAMS_BY_INGREDIENT_RANKING = "ranking"
 const val PARAMS_BY_INGREDIENT_IGNORE_COMMON_ITEMS = "ignore pantry"
 
 //paramts for get recipe information
-const val PARAMS_RECIPE_INFORMATION_NUTRITION = "include nutrition"
-const val PARAMS_RECIPE_INFORMATION_INSTRUCTION = "include instructions"
+const val PARAMS_RECIPE_INFORMATION_NUTRITION = "includeNutrition"
+const val PARAMS_RECIPE_INFORMATION_INSTRUCTION = "includeInstruction"
 
 // params map
-val PARAMS = mapOf<String,String>("ingredients" to "&ingredients=", "number" to "&number=", "id" to "&ids=","include nutrition" to "&includeNutrition=true", "include instructions" to "&includeInstruction=true", "ranking" to "&ranking=","ignore pantry" to "&ignorePantry=true" )
+//val PARAMS = mapOf<String,String>("ingredients" to "&ingredients=", "number" to "&number=", "id" to "&ids=","include nutrition" to "&includeNutrition=true", "include instructions" to "&includeInstruction=true", "ranking" to "&ranking=","ignore pantry" to "&ignorePantry=true" )
 
 
 // all ingredients
@@ -28,3 +28,4 @@ const val INGREDIENTS = "ingredients.txt"
 
 // get parcelable
 const val EXTRA_RECIPE_DATA: String = ""
+const val EXTRA_RECIPE_LIST: String = "recipe list"

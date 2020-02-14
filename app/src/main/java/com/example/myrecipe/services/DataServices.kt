@@ -1,9 +1,14 @@
 package com.example.myrecipe.services
 
 import android.content.Context
+import android.util.Log
 import com.example.myrecipe.R
 import com.example.myrecipe.model.IngredientGET
 import com.example.myrecipe.model.IngredientTest
+import com.example.myrecipe.model.RecipeFromIngredient
+import com.google.gson.Gson
+import org.json.JSONArray
+import org.json.JSONException
 import java.io.BufferedReader
 import java.io.File
 import java.io.IOException
@@ -47,4 +52,16 @@ object DataServices {
         }
 
     }
+    @Throws(JSONException::class)
+    fun fromJsonArray(jsonArray: JSONArray): ArrayList<RecipeFromIngredient>{
+        var recipeList = ArrayList<RecipeFromIngredient>()
+        var gson = Gson()
+        for(i in 0 until jsonArray.length()){
+            recipeList.add(gson.fromJson(jsonArray[i].toString(), RecipeFromIngredient::class.java))
+        }
+        Log.i("DATA SERV JSON ARR", recipeList[0].title)
+        return recipeList
+    }
+
+
 }

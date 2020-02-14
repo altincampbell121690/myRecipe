@@ -11,8 +11,9 @@ import com.bumptech.glide.Glide
 import com.example.myrecipe.R
 import com.example.myrecipe.model.RecipeFromIngredient
 import kotlinx.android.synthetic.main.recipe_card.view.*
+import java.util.ArrayList
 
-class RecipeCardAdapter(val context: Context, val recipeList: MutableList<RecipeFromIngredient>, val recipeCardClick: (RecipeFromIngredient)->Unit):RecyclerView.Adapter<RecipeCardAdapter.RecipeViewHolder>() {
+class RecipeCardAdapter(val context: Context, private val recipeList: ArrayList<RecipeFromIngredient>, val recipeCardClick: (RecipeFromIngredient)->Unit):RecyclerView.Adapter<RecipeCardAdapter.RecipeViewHolder>() {
     inner class RecipeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val recipeImage = itemView.findViewById<ImageView>(R.id.ivRecipeCardImage)
         val recipeTitle = itemView.findViewById<TextView>(R.id.tvRecipeCardTitle)
@@ -22,7 +23,7 @@ class RecipeCardAdapter(val context: Context, val recipeList: MutableList<Recipe
             recipeTitle.text = recipeItem.title
             Glide.with(context).load(recipeItem.image).into(recipeImage)
             var str = "Missing Ingredients: "
-            recipeItem.missedIngredients.forEach{str += " $it"}
+            recipeItem.missedIngredients.forEach{str += " ${it.original}\n"}
             recipeInfo.text = str
 
 
