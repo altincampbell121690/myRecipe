@@ -1,6 +1,5 @@
 package com.example.myrecipe.controller
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,11 +7,7 @@ import android.view.View
 
 import com.example.myrecipe.R
 import com.example.myrecipe.services.DataServices
-import com.example.myrecipe.services.Ingredient
 import com.example.myrecipe.utils.INGREDIENTS
-import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 

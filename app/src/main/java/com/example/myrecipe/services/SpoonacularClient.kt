@@ -18,11 +18,12 @@ object SpoonacularClient {
 
         }
 
-        fun getRecipeInformation(handler: JsonHttpResponseHandler, id:String){
+        fun getRecipeInformation(ID:String,handler: JsonHttpResponseHandler){
             val params = RequestParams()
+           val id = "$ID/"
             params.put(PARAMS_RECIPE_INFORMATION_NUTRITION, "true")
             params.put(PARAMS_RECIPE_INFORMATION_INSTRUCTION, "true")
-            params.put("number", "20")
+           // params.put("number", "20")
             client.get("$API_URL$id$GET_RECIPE_INFORMATION_PATH$API_KEY", params, handler)
 
         }

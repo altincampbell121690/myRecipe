@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clIngreidientContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.NutritionFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardElevation="7.0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvCalories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Calories"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/nutritionTitle" />
+
+            <TextView
+                android:id="@+id/nutritionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/roboto_black"
+                android:text="Nutrition"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fat"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvCalories" />
+
+            <TextView
+                android:id="@+id/tvSatFat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Saturated Fat"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvFat" />
+
+            <TextView
+                android:id="@+id/tvCarbs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Carbs"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvSatFat" />
+
+            <TextView
+                android:id="@+id/tvFiber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Fiber"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvCarbs" />
+
+            <TextView
+                android:id="@+id/tvSugar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sugar"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvFiber" />
+
+            <TextView
+                android:id="@+id/tvProtien"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Protien"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tvSugar" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="197dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nutritionTitle"
+                tools:text="Calories" />
+            <TextView
+                android:id="@+id/textView6"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fat"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            <TextView
+                android:id="@+id/textView7"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                tools:text="Saturated Fat" />
+            <TextView
+                android:id="@+id/textView8"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:text="Carbs" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                tools:text="Fiber" />
+            <TextView
+                android:id="@+id/textView10"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                tools:text="Sugar" />
+            <TextView
+                android:id="@+id/textView11"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCalories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:text="Protien" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="186dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardElevation="7.0dp"
+        android:id="@+id/card1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvWhatYouHave"
+            android:layout_width="398dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:text="Chicken, Rice, Beans"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/haveTitle" />
+
+        <TextView
+            android:id="@+id/haveTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:fontFamily="@font/roboto_black"
+            android:text="What You Have"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="186dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardElevation="7.0dp"
+        android:id="@+id/card2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvMissingIngredientsFrag"
+                android:layout_width="398dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="Chicken, Rice, Beans"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/missingTitle" />
+
+            <TextView
+                android:id="@+id/missingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:fontFamily="@font/roboto_black"
+                android:text="What You're Missing"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--
+    <TextView
+        android:id="@+id/tvMissingIngredientsFrag"
+        android:layout_width="398dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_elevated"
+        android:gravity="center"
+        android:minHeight="100dp"
+        android:text="garlic, ham, cream cheese, milk"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/missingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/roboto_black"
+        android:text="What You're Missing"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       />-->
+
+</LinearLayout>

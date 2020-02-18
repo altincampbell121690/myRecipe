@@ -7,27 +7,28 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myrecipe.R
+import com.example.myrecipe.model.IngredientItem
 import com.example.myrecipe.model.IngredientTest
 import com.example.myrecipe.services.DataServices
 
 //class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>) : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(){
 //,val itemChecked: (CompoundButton, Boolean)-> Unit
-class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
+class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientItem>)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
 //class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>,val itemChecked: (CompoundButton, Boolean)-> Unit)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
     var copyIngredientList= ingredientList.filter{it == it}
-    var selectedList = mutableListOf<IngredientTest>()
+    var selectedList = mutableListOf<IngredientItem>()
     inner class IngredientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
        // val ingredientImage = itemView.findViewById<ImageView>(R.id.ivIngredient)
         val ingredientName = itemView.findViewById<CheckBox>(R.id.cbItemName)
 
-        fun bindIngredient(ingredient: IngredientTest?, context: Context, position: Int){
-            val resourceId = context.resources.getIdentifier(ingredient?.image,"drawable", context.packageName)
+        fun bindIngredient(ingredient: IngredientItem?, context: Context, position: Int){
+//            val resourceId = context.resources.getIdentifier(ingredient?.image,"drawable", context.packageName)
            // ingredientImage.setImageResource(resourceId)
             ingredientName.text = ingredient?.name
             ingredientName.setOnCheckedChangeListener { buttonView, isChecked ->
                 if(isChecked){
                   //DEBUG  Toast.makeText(context, "im checked", Toast.LENGTH_SHORT).show()
-                    ingredient?.let { it: IngredientTest -> // if ingredient not null
+                    ingredient?.let { it: IngredientItem -> // if ingredient not null
                         if (!selectedList.contains(it))
                             selectedList.add(it)
                         }
@@ -75,7 +76,7 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
                 copyIngredientList.filter {it.name.toLowerCase().contains(filterBy)}
             }
             val filterResults = FilterResults()
-            require(filteredList is List<IngredientTest>) {
+            require(filteredList is List<IngredientItem>) {
                 println("ERROR invalid filter list type")
 
             }
@@ -87,7 +88,7 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
             //ingredientList = mutableListOf()
             ingredientList.clear()
             val list : List<Any?> = results?.values as List<Any?>
-            ingredientList.addAll(list as List<IngredientTest>) // ignore.. required to be Ingredient above
+            ingredientList.addAll(list as List<IngredientItem>) // ignore.. required to be Ingredient above
             notifyDataSetChanged()
 
         }

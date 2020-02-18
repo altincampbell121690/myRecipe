@@ -14,6 +14,6 @@
     <color name="colorIcon">#FFFFFF</color>
     <color name="shadow_color">#b3000000</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBlack">#000</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>

@@ -2,7 +2,6 @@ package com.example.myrecipe.controller
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
 import android.view.Menu
 import android.view.View
@@ -15,15 +14,11 @@ import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.myrecipe.R
 import com.example.myrecipe.adapter.IngredientListRyclerViewAdapter
-import com.example.myrecipe.model.RecipeFromIngredient
-import com.example.myrecipe.model.RecipeList
 import com.example.myrecipe.services.DataServices
 import com.example.myrecipe.services.SpoonacularClient
 import com.example.myrecipe.utils.*
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_add_to_pantry.*
 import okhttp3.Headers
-import java.util.ArrayList
 
 class AddToPantry : AppCompatActivity() {
     lateinit var myAdapter : IngredientListRyclerViewAdapter
@@ -38,7 +33,7 @@ class AddToPantry : AppCompatActivity() {
         actionBar!!.setLogo(R.drawable.ic_logo_color)
         actionBar!!.setDisplayUseLogoEnabled(true)
         myAdapter  = IngredientListRyclerViewAdapter(this,
-            DataServices.ingredientsList
+            DataServices.ingredientListFull
         )
         rvIngredientList.adapter = myAdapter
         rvIngredientList.layoutManager = LinearLayoutManager(this)
@@ -70,21 +65,23 @@ class AddToPantry : AppCompatActivity() {
 
 
         fun onNextClicked(view:View){
+
             myAdapter.selectedList.forEach { item ->
                 println("\nITEM NAME: ${item.name}")
             }
+            val listOfIng = DataServices.toIngredientList(myAdapter.selectedList)
 
-            var listofIng = listOf("apples","flour","sugar")
+/*
             val client = AsyncHttpClient()
             val params = RequestParams()
             //https://api.spoonacular.com/recipes/findByIngredients?apiKey=dcfa3c8d24e24e41989b9848b981b874&ingredients=apples,flour,sugar&number=2
-          /*  params.put(PARAMS[PARAMS_BY_INGREDIENT_LIST], "apples,flour,sugar")
-            params.put(PARAMS[PARAMS_BY_INGREDIENT_NUMBER], "2")*/
+          *//*  params.put(PARAMS[PARAMS_BY_INGREDIENT_LIST], "apples,flour,sugar")
+            params.put(PARAMS[PARAMS_BY_INGREDIENT_NUMBER], "2")*//*
             //params.put(PARAMS_BY_INGREDIENT_LIST, "apples,flour,sugar")
-            params.put(PARAMS_BY_INGREDIENT_LIST, listofIng.toString())
+            params.put(PARAMS_BY_INGREDIENT_LIST, myAdapter.selectedList.toString())
             params.put("number", 2)
 
-           /* client.get("$API_URL$GET_RECIPES_BY_INGREDIENT_PATH$API_KEY", params, object: JsonHttpResponseHandler() {
+           *//* client.get("$API_URL$GET_RECIPES_BY_INGREDIENT_PATH$API_KEY", params, object: JsonHttpResponseHandler() {
                 override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
                     Log.d("ON NEXT CLICKED", "onSUCCESS")
                     var gson = Gson()
@@ -99,7 +96,7 @@ class AddToPantry : AppCompatActivity() {
                 }
 
             })*/
-            SpoonacularClient.searchRecipeByIngredient(listofIng, handler = object: JsonHttpResponseHandler() {
+            SpoonacularClient.searchRecipeByIngredient(listOfIng, handler = object: JsonHttpResponseHandler() {
                 override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
                     Log.d("ON NEXT CLICKED", "onSUCCESS")
                     require(json != null){

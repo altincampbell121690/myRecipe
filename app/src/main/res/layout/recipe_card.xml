@@ -55,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:startExpanded="false"
-            app:title="More Details"></com.alespero.expandablecardview.ExpandableCardView>
+            app:title="More Details" />
 
 
         <ToggleButton

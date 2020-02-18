@@ -1,7 +1,7 @@
 package com.example.myrecipe.utils
 
 
-const val API_KEY = "bd47c38ab5ba48449649784fd402f94e"
+const val API_KEY = "fce02cd9a52d483fb7de3a6b0ec1a649"
 const val BACKEND_BASE_URL = ""
 const val IMAGE_PATH = ""
 const val API_URL = "https://api.spoonacular.com/recipes/"
@@ -27,5 +27,11 @@ const val PARAMS_RECIPE_INFORMATION_INSTRUCTION = "includeInstruction"
 const val INGREDIENTS = "ingredients.txt"
 
 // get parcelable
-const val EXTRA_RECIPE_DATA: String = ""
+
 const val EXTRA_RECIPE_LIST: String = "recipe list"
+const val EXTRA_RECIPE_DETAIL: String = "recipe details"
+
+const val BUNDLE_RECIPE_STEPS= "step"
+const val BUNDLE_RECIPE_NUTRITION= "nutrients"
+
+const val PAGER_MAX_COUNT = 200

@@ -3,15 +3,13 @@ package com.example.myrecipe.services
 import android.content.Context
 import android.util.Log
 import com.example.myrecipe.R
-import com.example.myrecipe.model.IngredientGET
+import com.example.myrecipe.model.IngredientItem
 import com.example.myrecipe.model.IngredientTest
 import com.example.myrecipe.model.RecipeFromIngredient
 import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
 
 object DataServices {
     val ingredientsList = mutableListOf( // for testing
@@ -33,7 +31,7 @@ object DataServices {
     // not safe!
     val selectedIngredientsList = mutableListOf<IngredientTest>()
 
-    val ingredientListFull = mutableListOf<Ingredient>()
+    val ingredientListFull = mutableListOf<IngredientItem>()
 
     fun getIngredientListFull(context: Context,fileName:String){
         val stream = context.resources.openRawResource(R.raw.ingredients)
@@ -42,7 +40,12 @@ object DataServices {
         try {
          reader.forEachLine {
              val tempList = it.split(";")
-             ingredientListFull.add(Ingredient(tempList[0], tempList[1]))
+             ingredientListFull.add(
+                 IngredientItem(
+                     tempList[0],
+                     tempList[1]
+                 )
+             )
              println("${tempList[0]} - ${tempList[1]}")
          }
         }catch (e : Exception){
@@ -62,6 +65,14 @@ object DataServices {
         Log.i("DATA SERV JSON ARR", recipeList[0].title)
         return recipeList
     }
+    fun toIngredientList(ingredientList:MutableList<IngredientItem>):List<String>{
+        val listofStr = mutableListOf<String>()
 
+            ingredientList.forEach {
+                listofStr.add(it.name)
+            }
+        return listofStr
+
+    }
 
 }
