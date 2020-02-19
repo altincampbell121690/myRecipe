@@ -27,4 +27,23 @@ object SpoonacularClient {
             client.get("$API_URL$id$GET_RECIPE_INFORMATION_PATH$API_KEY", params, handler)
 
         }
+
+    fun complexSearch(listOfIng:List<String>,diet:String,listOfIntolerances:List<String> ,handler: JsonHttpResponseHandler){
+        val params = RequestParams()
+
+        if (diet != "") {
+            params.put(PARAMS_COMPLEX_SEARCH_DIET,diet)
+        }
+        if (listOfIntolerances.isNotEmpty()) {
+            params.put(PARAMS_COMPLEX_SEARCH_INTOLERANCE_LIST, listOfIntolerances.toString())
+        }
+        params.put(PARAMS_COMPLEX_SEARCH_INSTRUCTIONS,"true")
+        params.put(PARAMS_COMPLEX_SEARCH_FILL_INGREDIENTS, "true")
+        params.put(PARAMS_COMPLEX_SEARCH_RECIPE_INFO, "true")
+        params.put(PARAMS_COMPLEX_SEARCH_INGREDIENTS_LIST,listOfIng.toString())
+        params.put(PARAMS_COMPLEX_SEARCH_NUMBER,"10")
+        // params.put("number", "20")
+        client.get("$API_URL$COMPLEX_SEARCH$API_KEY", params, handler)
+
+    }
 }

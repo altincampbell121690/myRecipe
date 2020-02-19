@@ -155,7 +155,7 @@ data class RecipeDetail(
         @SerializedName("ingredients")
         val ingredients: List<Ingredient?>? = null,
         @SerializedName("nutrients")
-        val nutrients: List<Nutrient?>? = null,
+        val nutrients: ArrayList<Nutrient?>? = null,
         @SerializedName("weightPerServing")
         val weightPerServing: WeightPerServing? = null
     ) : Parcelable {

@@ -18,13 +18,19 @@ import com.example.myrecipe.utils.BUNDLE_RECIPE_STEPS
  * A simple [Fragment] subclass.
  */
 class InstructionsFragment : Fragment() {
-
+    var steps: ArrayList<Step> = arrayListOf()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Creates the view controlled by the fragment
         val args = arguments
         val context =  requireContext()
-        val steps: ArrayList<Step>  = args?.getParcelableArrayList(BUNDLE_RECIPE_STEPS)!!
+            steps = try {
+            args?.getParcelableArrayList(BUNDLE_RECIPE_STEPS)!!
+        } catch (e: Exception) {
+            println("FAILED CUZ ITS EMPTY")
+            println("${e.toString()}:\n ${e.stackTrace}")
+            arrayListOf()
+        }
         val view = inflater.inflate(R.layout.fragment_instructions, container, false)
         val instructionList = view.findViewById<RecyclerView>(R.id.rvInstructionList)
         instructionList.adapter = InstructionsListAdapter(context ,steps)

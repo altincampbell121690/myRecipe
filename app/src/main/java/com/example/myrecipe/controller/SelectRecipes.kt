@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.myrecipe.R
 import com.example.myrecipe.adapter.RecipeCardAdapter
+import com.example.myrecipe.model.ComplexRecipeInfo
 import com.example.myrecipe.model.RecipeDetail
 import com.example.myrecipe.model.RecipeFromIngredient
 import com.example.myrecipe.services.SpoonacularClient
+import com.example.myrecipe.utils.EXTRA_RECIPE_COMPLEX
 import com.example.myrecipe.utils.EXTRA_RECIPE_DETAIL
 import com.example.myrecipe.utils.EXTRA_RECIPE_LIST
 import com.google.gson.Gson
@@ -31,9 +33,9 @@ class SelectRecipes : AppCompatActivity() {
         actionBar!!.setDisplayShowHomeEnabled(true)
         actionBar.setLogo(R.drawable.ic_logo_color)
         actionBar.setDisplayUseLogoEnabled(true)
-        val recipes: ArrayList<RecipeFromIngredient>?  = intent.getParcelableArrayListExtra(EXTRA_RECIPE_LIST)
+        val recipes: ArrayList<ComplexRecipeInfo>?  = intent.getParcelableArrayListExtra(EXTRA_RECIPE_LIST)
         if (recipes != null){
-            val obj:RecipeFromIngredient = recipes[0]
+            val obj:ComplexRecipeInfo = recipes[0]
             println("${obj.title}\n${obj.image}")
             myAdapter = RecipeCardAdapter(this, recipes!!){
                 Toast.makeText(this,"IM CLICKED", Toast.LENGTH_LONG).show()
@@ -45,6 +47,7 @@ class SelectRecipes : AppCompatActivity() {
                         if(json != null){
                             val recipe =  gson.fromJson(json.jsonObject.toString(), RecipeDetail::class.java)
                             val recipeDetailIntent = Intent(applicationContext,RecipeDetails::class.java)
+                            recipeDetailIntent.putExtra(EXTRA_RECIPE_COMPLEX,it)
                             recipeDetailIntent.putExtra(EXTRA_RECIPE_DETAIL, recipe)
                             Log.d("ON RECIPE CLICKED", "onSUCCESS\n\n${recipe.title}\n${recipe.image}")
                             startActivity(recipeDetailIntent)

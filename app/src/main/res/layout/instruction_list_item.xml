@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:outlineAmbientShadowColor="@color/colorAccent"
     card_view:cardBackgroundColor="@color/colorWhite"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="2.5dp"
     card_view:cardUseCompatPadding="true">
+   <!-- android:outlineAmbientShadowColor="@color/colorAccent"-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

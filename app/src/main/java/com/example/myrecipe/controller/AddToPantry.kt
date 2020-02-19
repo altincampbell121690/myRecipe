@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -22,12 +23,14 @@ import kotlinx.android.synthetic.main.activity_add_to_pantry.*
 import kotlinx.android.synthetic.main.fab_layout.*
 import okhttp3.Headers
 
-class AddToPantry : AppCompatActivity() {
+class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
     lateinit var fabOpen: Animation
     lateinit var fabClose: Animation
     lateinit var fabClock: Animation
     lateinit var fabAntiClock: Animation
     lateinit var myAdapter: IngredientListRyclerViewAdapter
+    lateinit var selectedDiet:String
+   lateinit var intoleranceArr : MutableList<String>
 
     var isOpen = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +39,7 @@ class AddToPantry : AppCompatActivity() {
         var actionBar = supportActionBar
         actionBar?.title = "Ingredients"
         actionBar?.setTitle("Find Ingredients")
+        selectedDiet = ""
 
         actionBar!!.setDisplayShowHomeEnabled(true)
         actionBar!!.setLogo(R.drawable.ic_logo_color)
@@ -50,6 +54,7 @@ class AddToPantry : AppCompatActivity() {
         )
         rvIngredientList.adapter = myAdapter
         rvIngredientList.layoutManager = LinearLayoutManager(this)
+        intoleranceArr = mutableListOf()
     }
 
 
@@ -100,7 +105,6 @@ class AddToPantry : AppCompatActivity() {
     }
 
     fun onFilterClicked(view: View) {
-        Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show()
         openModal()
     }
 
@@ -117,17 +121,19 @@ class AddToPantry : AppCompatActivity() {
         val listOfIng = DataServices.toIngredientList(myAdapter.selectedList)
 
 
-        SpoonacularClient.searchRecipeByIngredient(
+        SpoonacularClient.complexSearch(
             listOfIng,
+            diet = selectedDiet,
+            listOfIntolerances = intoleranceArr,
             handler = object : JsonHttpResponseHandler() {
                 override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
                     Log.d("ON NEXT CLICKED", "onSUCCESS")
                     require(json != null) {
-                        Toast.makeText(applicationContext, "ERROR: JSON EMPTY", Toast.LENGTH_LONG)
-                            .show()
+                        Log.d("PANTRY ON SUCCESS", "ERROR: JSON EMPTY")
                     }
+                    println("${json.jsonObject.getJSONArray("results")}")
                     //val recipeArray =  RecipeList(DataServices.fromJsonArray(json.jsonArray))
-                    val recipeArray = DataServices.fromJsonArray(json.jsonArray)
+                    val recipeArray = DataServices.fromJsonArray(json.jsonObject.getJSONArray("results"))
                     println("${myAdapter.selectedList}")
                     val selectRecipeIntent = Intent(applicationContext, SelectRecipes::class.java)
 
@@ -150,6 +156,21 @@ class AddToPantry : AppCompatActivity() {
 
             })
 
+    }
+
+    override fun getDiets(diet: String) {
+        selectedDiet = diet //To change body of created functions use File | Settings | File Templates.
+      //  Toast.makeText(this, selectedDiet, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun getIntolerance(arr: ArrayList<CheckBox>) {
+        arr.forEach{
+            if(it.isChecked) {
+               // println(it.text)
+                intoleranceArr.add(it.text.toString())
+            }
+        }
+        Log.i("GET_INTOLERANCE", intoleranceArr.toString())
     }
 }
 

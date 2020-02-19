@@ -3,6 +3,7 @@ package com.example.myrecipe.services
 import android.content.Context
 import android.util.Log
 import com.example.myrecipe.R
+import com.example.myrecipe.model.ComplexRecipeInfo
 import com.example.myrecipe.model.IngredientItem
 import com.example.myrecipe.model.IngredientTest
 import com.example.myrecipe.model.RecipeFromIngredient
@@ -56,15 +57,17 @@ object DataServices {
 
     }
     @Throws(JSONException::class)
-    fun fromJsonArray(jsonArray: JSONArray): ArrayList<RecipeFromIngredient>{
-        var recipeList = ArrayList<RecipeFromIngredient>()
+    fun fromJsonArray(jsonArray: JSONArray): ArrayList<ComplexRecipeInfo>{
+        //var recipeList = ArrayList<RecipeFromIngredient>()
+        var recipeList = ArrayList<ComplexRecipeInfo>()
         var gson = Gson()
         for(i in 0 until jsonArray.length()){
-            recipeList.add(gson.fromJson(jsonArray[i].toString(), RecipeFromIngredient::class.java))
+            recipeList.add(gson.fromJson(jsonArray[i].toString(), ComplexRecipeInfo::class.java))
         }
         Log.i("DATA SERV JSON ARR", recipeList[0].title)
         return recipeList
     }
+
     fun toIngredientList(ingredientList:MutableList<IngredientItem>):List<String>{
         val listofStr = mutableListOf<String>()
 

@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/titleTxt2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/amiko_bold"
@@ -48,6 +48,7 @@
         android:shadowDy="7.5"
         android:shadowRadius="6.0"
         android:text="Take Back The Kitchen"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="30sp"
