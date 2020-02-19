@@ -54,7 +54,7 @@ class FilterDialog : DialogFragment(), AdapterView.OnItemSelectedListener {
                 } // do nothing
             })
             .setPositiveButton("Finish") { dialog, which ->
-                Toast.makeText(context,"FINISHED $diet", Toast.LENGTH_LONG).show()
+                //Toast.makeText(context,"FINISHED $diet", Toast.LENGTH_LONG).show()
                 dlListener.getDiets(diet)
                 if (arrIntolerances != null) {
                     dlListener.getIntolerance(arrIntolerances!!)
@@ -77,7 +77,7 @@ class FilterDialog : DialogFragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if(parent?.getItemAtPosition(position).toString() != "None"){
-            Toast.makeText(parent!!.context,"I am selected", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(parent!!.context,"I am selected", Toast.LENGTH_SHORT).show()
             diet = parent.getItemAtPosition(position).toString()
 
         }

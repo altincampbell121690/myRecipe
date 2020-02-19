@@ -34,7 +34,7 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
                         }
                     ingredientList[position].isChecked = isChecked
                 } else {
-                    Toast.makeText(context, "NOT checked", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(context, "NOT checked", Toast.LENGTH_SHORT).show()
                     selectedList.remove(ingredient)
                     ingredientList[position].isChecked = isChecked
 

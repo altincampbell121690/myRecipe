@@ -38,7 +38,7 @@ class SelectRecipes : AppCompatActivity() {
             val obj:ComplexRecipeInfo = recipes[0]
             println("${obj.title}\n${obj.image}")
             myAdapter = RecipeCardAdapter(this, recipes!!){
-                Toast.makeText(this,"IM CLICKED", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"IM CLICKED", Toast.LENGTH_LONG).show()
                 SpoonacularClient.getRecipeInformation(it.id.toString(), handler = object:
                     JsonHttpResponseHandler() {
                     override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
@@ -51,6 +51,8 @@ class SelectRecipes : AppCompatActivity() {
                             recipeDetailIntent.putExtra(EXTRA_RECIPE_DETAIL, recipe)
                             Log.d("ON RECIPE CLICKED", "onSUCCESS\n\n${recipe.title}\n${recipe.image}")
                             startActivity(recipeDetailIntent)
+                        }else{
+                            Toast.makeText(applicationContext,"Sorry something went wrong", Toast.LENGTH_LONG).show()
                         }
 
 
