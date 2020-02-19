@@ -34,7 +34,14 @@ class NutritionFragment : Fragment() {
         val  fiber= view.findViewById<TextView>(R.id.tvFiber)
         val  sugar= view.findViewById<TextView>(R.id.tvSugar)
         val  protien= view.findViewById<TextView>(R.id.tvProtien)
-      cals.text = nutrition
+         cals.text = "${nutrition[0].amount.toString()} ${nutrition[0].unit}"
+        fat.text = "${nutrition[1].amount.toString()} ${nutrition[1].unit}"
+        satFat.text = "${nutrition[2].amount.toString()} ${nutrition[2].unit}"
+        carbs.text = "${nutrition[3].amount.toString()} ${nutrition[3].unit}"
+        sugar.text =  "${nutrition[5].amount.toString()} ${nutrition[5].unit}"
+        protien.text=  "${nutrition[8].amount.toString()} ${nutrition[8].unit}"
+        fiber.text =  "${nutrition[10].amount.toString()} ${nutrition[10].unit}"
+
         // Inflate the layout for this fragment
         // and return the view
         return view

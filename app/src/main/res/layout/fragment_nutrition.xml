@@ -6,6 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:nestedScrollingEnabled="true"
+    android:scrollbars="vertical"
+    android:isScrollContainer="true"
     tools:context=".view.NutritionFragment">
 
     <androidx.cardview.widget.CardView
@@ -212,19 +215,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvWhatYouHave"
-            android:layout_width="398dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:text="Chicken, Rice, Beans"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/haveTitle" />
-
-        <TextView
             android:id="@+id/haveTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -235,6 +225,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMissedIngredients"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/haveTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -252,18 +253,6 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvMissingIngredientsFrag"
-                android:layout_width="398dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:text="Chicken, Rice, Beans"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/missingTitle" />
-
-            <TextView
                 android:id="@+id/missingTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -274,6 +263,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/missingTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

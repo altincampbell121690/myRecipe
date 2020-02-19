@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <CheckBox
+        android:id="@+id/cbSesame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sesame"
+        app:layout_constraintStart_toStartOf="@+id/cbSeafood"
+        app:layout_constraintTop_toBottomOf="@+id/cbEgg" />
+
+    <CheckBox
+        android:id="@+id/cbPeanut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Peanut"
+        app:layout_constraintEnd_toStartOf="@+id/cbSoy"
+        app:layout_constraintStart_toEndOf="@+id/cbDairy"
+        app:layout_constraintTop_toTopOf="@+id/cbDairy" />
+
+    <CheckBox
+        android:id="@+id/cbSeafood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Seafood"
+        app:layout_constraintStart_toStartOf="@+id/cbPeanut"
+        app:layout_constraintTop_toBottomOf="@+id/cbDairy" />
+
+    <CheckBox
+        android:id="@+id/cbShellfish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Shellfish"
+        app:layout_constraintStart_toStartOf="@+id/cbSesame"
+        app:layout_constraintTop_toBottomOf="@+id/cbGluten" />
+
+    <Spinner
+        android:id="@+id/spnrDiet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/tvDietType"
+        android:fontFamily="@font/roboto_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvDietType"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDietType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diet"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/spnrDiet"
+        app:layout_constraintStart_toStartOf="@+id/cbDairy"
+        app:layout_constraintTop_toTopOf="@+id/spnrDiet" />
+
+
+    <CheckBox
+        android:id="@+id/cbDairy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:textSize="16sp"
+        android:text="Dairy"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnrDiet" />
+
+    <CheckBox
+        android:id="@+id/cbEgg"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Egg"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintStart_toStartOf="@+id/cbDairy"
+        app:layout_constraintTop_toBottomOf="@+id/cbDairy" />
+
+    <CheckBox
+        android:id="@+id/cbGluten"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Gluten"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintStart_toStartOf="@+id/cbEgg"
+        app:layout_constraintTop_toBottomOf="@+id/cbEgg" />
+
+    <CheckBox
+        android:id="@+id/cbGrain"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Grain"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintStart_toStartOf="@+id/cbGluten"
+        app:layout_constraintTop_toBottomOf="@+id/cbGluten" />
+
+    <CheckBox
+        android:id="@+id/cbSoy"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="Soy"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cbPeanut" />
+
+    <CheckBox
+        android:id="@+id/cbSulfite"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="Sulfite"
+        app:layout_constraintStart_toStartOf="@+id/cbSoy"
+        app:layout_constraintTop_toBottomOf="@+id/cbSoy" />
+
+    <CheckBox
+        android:id="@+id/cbTreeNut"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tree Nut"
+        app:layout_constraintStart_toStartOf="@+id/cbSulfite"
+        app:layout_constraintTop_toBottomOf="@+id/cbSulfite"
+        android:fontFamily="@font/roboto_condensed_regular"/>
+
+    <CheckBox
+        android:id="@+id/cbWheat"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Wheat"
+        android:fontFamily="@font/roboto_condensed_regular"
+        app:layout_constraintStart_toStartOf="@+id/cbTreeNut"
+        app:layout_constraintTop_toBottomOf="@+id/cbTreeNut" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

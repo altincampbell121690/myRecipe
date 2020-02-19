@@ -30,7 +30,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <include layout="@layout/fab_layout"/>
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +43,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="50dp"
         app:srcCompat="@android:drawable/ic_menu_send"
-        android:onClick="onNextClicked"/>
+        android:onClick="onNextClicked"
+        android:focusable="true"
+       />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 <!--
