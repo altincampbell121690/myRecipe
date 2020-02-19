@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.myrecipe.R
 import com.example.myrecipe.adapter.IngredientListRyclerViewAdapter
+import com.example.myrecipe.model.ComplexRecipeInfo
 import com.example.myrecipe.services.DataServices
 import com.example.myrecipe.services.SpoonacularClient
 import com.example.myrecipe.utils.*
@@ -133,13 +134,23 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
                     }
                     println("${json.jsonObject.getJSONArray("results")}")
                     //val recipeArray =  RecipeList(DataServices.fromJsonArray(json.jsonArray))
-                    val recipeArray = DataServices.fromJsonArray(json.jsonObject.getJSONArray("results"))
+                    val recipeArray = try {
+                        DataServices.fromJsonArray(json.jsonObject.getJSONArray("results"))
+                    } catch (e:Exception) {
+                        println("$e : ${e.stackTrace}")
+                        arrayListOf<ComplexRecipeInfo>()
+                    }
                     println("${myAdapter.selectedList}")
-                    val selectRecipeIntent = Intent(applicationContext, SelectRecipes::class.java)
 
-                    // selectRecipeIntent.putExtra(EXTRA_RECIPE_LIST, recipeArray)
-                    selectRecipeIntent.putParcelableArrayListExtra(EXTRA_RECIPE_LIST, recipeArray)
-                    startActivity(selectRecipeIntent)
+                    if (!recipeArray.isNullOrEmpty()) {
+                        val selectRecipeIntent = Intent(applicationContext, SelectRecipes::class.java)
+
+                        // selectRecipeIntent.putExtra(EXTRA_RECIPE_LIST, recipeArray)
+                        selectRecipeIntent.putParcelableArrayListExtra(EXTRA_RECIPE_LIST, recipeArray)
+                        startActivity(selectRecipeIntent)
+                    } else {
+                        Toast.makeText(applicationContext,"Im sorry, no recipes were found with those ingredients",Toast.LENGTH_LONG).show()
+                    }
 
                 }
 

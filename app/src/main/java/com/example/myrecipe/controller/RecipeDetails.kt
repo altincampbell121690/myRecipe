@@ -2,6 +2,7 @@ package com.example.myrecipe.controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.myrecipe.R
@@ -50,6 +51,8 @@ class RecipeDetails : AppCompatActivity() {
                 }
             ).attach()
 
+        }else{
+            Toast.makeText(this,"Sorry something went wrong", Toast.LENGTH_LONG).show()
         }
 
 
