@@ -78,7 +78,7 @@ class FilterDialog : DialogFragment(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if(parent?.getItemAtPosition(position).toString() != "None"){
             //Toast.makeText(parent!!.context,"I am selected", Toast.LENGTH_SHORT).show()
-            diet = parent.getItemAtPosition(position).toString()
+            diet = parent?.getItemAtPosition(position).toString()
 
         }
 
