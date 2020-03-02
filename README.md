@@ -49,6 +49,8 @@ Recommends recipes based on what you have in your kitchen
 
 ### [BONUS] GIF
 <img src="https://imgur.com/gallery/1W4Ps77" width=200>
+<img src="https://imgur.com/a/1W4Ps77" width=200>
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/1W4Ps77" data-context="false" ><a href="//imgur.com/a/1W4Ps77"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/1W4Ps77"><a href="//imgur.com/a/1W4Ps77">myRecipe APP</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 
