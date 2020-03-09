@@ -120,8 +120,7 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
             println("\nITEM NAME: ${item.name}")
         }
         val listOfIng = DataServices.toIngredientList(myAdapter.selectedList)
-
-
+        ING_LIST = listOfIng
         SpoonacularClient.complexSearch(
             listOfIng,
             diet = selectedDiet,
@@ -134,15 +133,17 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
                     }
                     println("${json.jsonObject.getJSONArray("results")}")
                     //val recipeArray =  RecipeList(DataServices.fromJsonArray(json.jsonArray))
+                    //val recipeArray =  DataServices.fromJsonArray(json.jsonObject.getJSONArray("results"))
                     val recipeArray = try {
                         DataServices.fromJsonArray(json.jsonObject.getJSONArray("results"))
                     } catch (e:Exception) {
-                        println("$e : ${e.stackTrace}")
+                        println("IN PANTRY $e : ${e.stackTrace}")
                         arrayListOf<ComplexRecipeInfo>()
                     }
                     println("${myAdapter.selectedList}")
 
                     if (!recipeArray.isNullOrEmpty()) {
+                        // create missed ingredient array
                         val selectRecipeIntent = Intent(applicationContext, SelectRecipes::class.java)
 
                         // selectRecipeIntent.putExtra(EXTRA_RECIPE_LIST, recipeArray)
@@ -183,6 +184,7 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
         }
         Log.i("GET_INTOLERANCE", intoleranceArr.toString())
     }
+
 }
 
 

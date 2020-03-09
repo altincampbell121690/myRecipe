@@ -28,17 +28,24 @@ object SpoonacularClient {
 
         }
 
-    fun complexSearch(listOfIng:List<String>,diet:String,listOfIntolerances:List<String> ,handler: JsonHttpResponseHandler){
+    fun complexSearch(
+        listOfIng: List<String>,
+        diet:String,
+        listOfIntolerances:List<String>,
+        handler: JsonHttpResponseHandler){
         val params = RequestParams()
+        var dietX = diet
+        if(dietX == "None")
+            dietX = ""
 
-        if (diet != "") {
-            params.put(PARAMS_COMPLEX_SEARCH_DIET,diet)
+        if (dietX != "") {
+            params.put(PARAMS_COMPLEX_SEARCH_DIET,dietX)
         }
         if (listOfIntolerances.isNotEmpty()) {
             params.put(PARAMS_COMPLEX_SEARCH_INTOLERANCE_LIST, listOfIntolerances.toString())
         }
         params.put(PARAMS_COMPLEX_SEARCH_INSTRUCTIONS,"true")
-        params.put(PARAMS_COMPLEX_SEARCH_FILL_INGREDIENTS, "true")
+       // params.put(PARAMS_COMPLEX_SEARCH_FILL_INGREDIENTS, "true") // gotta fix it here
         params.put(PARAMS_COMPLEX_SEARCH_RECIPE_INFO, "true")
         params.put(PARAMS_COMPLEX_SEARCH_INGREDIENTS_LIST,listOfIng.toString())
         params.put(PARAMS_COMPLEX_SEARCH_NUMBER,"10")

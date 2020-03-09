@@ -11,11 +11,8 @@ import com.example.myrecipe.R
 import com.example.myrecipe.adapter.RecipeCardAdapter
 import com.example.myrecipe.model.ComplexRecipeInfo
 import com.example.myrecipe.model.RecipeDetail
-import com.example.myrecipe.model.RecipeFromIngredient
 import com.example.myrecipe.services.SpoonacularClient
-import com.example.myrecipe.utils.EXTRA_RECIPE_COMPLEX
-import com.example.myrecipe.utils.EXTRA_RECIPE_DETAIL
-import com.example.myrecipe.utils.EXTRA_RECIPE_LIST
+import com.example.myrecipe.utils.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_select_recipe.*
 import okhttp3.Headers
@@ -46,6 +43,8 @@ class SelectRecipes : AppCompatActivity() {
                        // Log.d("ON RECIPE CLICKED", "onSUCCESS")
                         if(json != null){
                             val recipe =  gson.fromJson(json.jsonObject.toString(), RecipeDetail::class.java)
+                            it.setUsedIngredients(ING_LIST, recipe.extendedIngredients)
+                            it.setMissedIngredients(ING_LIST, recipe.extendedIngredients)
                             val recipeDetailIntent = Intent(applicationContext,RecipeDetails::class.java)
                             recipeDetailIntent.putExtra(EXTRA_RECIPE_COMPLEX,it)
                             recipeDetailIntent.putExtra(EXTRA_RECIPE_DETAIL, recipe)

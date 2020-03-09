@@ -21,7 +21,7 @@ data class RecipeDetail(
     @SerializedName("dishTypes")
     val dishTypes: List<String?>? = null,
     @SerializedName("extendedIngredients")
-    val extendedIngredients: List<ExtendedIngredient?>? = null,
+    val extendedIngredients: List<ComplexRecipeInfo.Ingredient?>? = null,
     @SerializedName("gaps")
     val gaps: String? = null,
     @SerializedName("glutenFree")
@@ -209,4 +209,5 @@ data class RecipeDetail(
         @SerializedName("pairingText")
         val pairingText: String? = null
     ) : Parcelable
+
 }

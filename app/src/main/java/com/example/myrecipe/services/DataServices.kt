@@ -13,25 +13,7 @@ import org.json.JSONException
 import java.io.BufferedReader
 
 object DataServices {
-    val ingredientsList = mutableListOf( // for testing
-        IngredientTest("Broccoli","broccoli"),
-        IngredientTest("Chicken","chicken"),
-        IngredientTest("Swiss Cheese", "swiss_cheese"),
-        IngredientTest("Lamb Shank","lamb"),
-        IngredientTest("Carrot","carrot"),
-        IngredientTest("Cheddar Cheese", "cheddar_cheese") ,
-        IngredientTest("Broccoli","broccoli"),
-    IngredientTest("Chicken","chicken"),
-    IngredientTest("Swiss Cheese", "swiss_cheese"),
-    IngredientTest("Lamb Shank","lamb"),
-    IngredientTest("Carrot","carrot"),
-    IngredientTest("Cheddar Cheese", "cheddar_cheese")
-
-    )
-
     // not safe!
-    val selectedIngredientsList = mutableListOf<IngredientTest>()
-
     val ingredientListFull = mutableListOf<IngredientItem>()
 
     fun getIngredientListFull(context: Context,fileName:String){

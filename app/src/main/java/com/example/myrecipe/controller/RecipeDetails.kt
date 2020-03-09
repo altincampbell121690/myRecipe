@@ -24,6 +24,7 @@ class RecipeDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_details)
         viewPager = findViewById(R.id.viewPager)
+        viewPager.isUserInputEnabled = false
         val recipe: RecipeDetail? = intent.getParcelableExtra(EXTRA_RECIPE_DETAIL)
         val pantryItem: ComplexRecipeInfo? = intent.getParcelableExtra(EXTRA_RECIPE_COMPLEX)
         if (recipe != null){

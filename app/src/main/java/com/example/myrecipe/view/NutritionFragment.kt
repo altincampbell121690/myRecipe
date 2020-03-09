@@ -30,7 +30,7 @@ class NutritionFragment : Fragment() {
          nutrition = try {
             args?.getParcelableArrayList(BUNDLE_RECIPE_NUTRITION)!!
         } catch (e: Exception) {
-            println("FAILED CUZ ITS NULL")
+            println("NUTRITION: FAILED CUZ ITS NULL")
             println("${e.toString()}:\n ${e.stackTrace}")
             arrayListOf()
         }

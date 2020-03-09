@@ -15,7 +15,7 @@ import java.util.ArrayList
 
 class RecipePagerAdapter(fragActvty: FragmentActivity, private val missedIngredients: ArrayList<ComplexRecipeInfo.Ingredient?>?,private val onHandIngredients: ArrayList<ComplexRecipeInfo.Ingredient?>?, private val nutrion:ArrayList<Nutrient?>?, private val steps: ArrayList<Step?>?): FragmentStateAdapter(fragActvty) {
     override fun getItemCount(): Int {
-        return 3 * PAGER_MAX_COUNT
+        return 3
     }
 
     override fun createFragment(position: Int): Fragment {

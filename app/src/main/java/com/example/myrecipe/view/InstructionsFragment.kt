@@ -27,7 +27,7 @@ class InstructionsFragment : Fragment() {
             steps = try {
             args?.getParcelableArrayList(BUNDLE_RECIPE_STEPS)!!
         } catch (e: Exception) {
-            println("FAILED CUZ ITS EMPTY")
+            println("INS: FAILED CUZ ITS EMPTY")
             println("${e.toString()}:\n ${e.stackTrace}")
             arrayListOf()
         }

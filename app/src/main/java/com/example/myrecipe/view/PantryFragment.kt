@@ -30,14 +30,14 @@ class PantryFragment : Fragment() {
         onHand = try {
             args?.getParcelableArrayList(BUNDLE_RECIPE_PANTRY_ON_HAND)!!
         } catch (e: Exception) {
-            println("FAILED CUZ ITS EMPTY")
+            println("PANTRY: FAILED CUZ ITS EMPTY")
             println("${e.toString()}:\n ${e.stackTrace}")
             arrayListOf()
         }
         missing = try {
             args?.getParcelableArrayList(BUNDLE_RECIPE_PANTRY_MISSING)!!
         } catch (e: Exception) {
-            println("FAILED CUZ ITS EMPTY")
+            println("PARSE FAIL-PANTRY:FAILED CUZ ITS EMPTY")
             println("${e.toString()}:\n ${e.stackTrace}")
             arrayListOf()
         }
