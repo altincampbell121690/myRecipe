@@ -115,6 +115,8 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
     }
 
     fun onNextClicked(view: View) {
+        //START SPINNER
+        progressBar.visibility=View.VISIBLE
 
         myAdapter.selectedList.forEach { item ->
             println("\nITEM NAME: ${item.name}")
@@ -148,6 +150,10 @@ class AddToPantry : AppCompatActivity(), FilterDialog.FilterDialogLister {
 
                         // selectRecipeIntent.putExtra(EXTRA_RECIPE_LIST, recipeArray)
                         selectRecipeIntent.putParcelableArrayListExtra(EXTRA_RECIPE_LIST, recipeArray)
+
+                        //STOP SPINNER
+                        //progressBar.visibility = View.GONE
+
                         startActivity(selectRecipeIntent)
                     } else {
                         Toast.makeText(applicationContext,"Im sorry, no recipes were found with those ingredients",Toast.LENGTH_LONG).show()

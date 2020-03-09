@@ -17,6 +17,7 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
 //class IngredientListRyclerViewAdapter(private val context: Context, private var ingredientList: MutableList<IngredientTest>,val itemChecked: (CompoundButton, Boolean)-> Unit)  : RecyclerView.Adapter<IngredientListRyclerViewAdapter.IngredientViewHolder>(), Filterable{
     var copyIngredientList= ingredientList.filter{it == it}
     var selectedList = mutableListOf<IngredientItem>()
+    var posList = mutableListOf<Int>()
     inner class IngredientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
        // val ingredientImage = itemView.findViewById<ImageView>(R.id.ivIngredient)
         val ingredientName = itemView.findViewById<CheckBox>(R.id.cbItemName)
@@ -33,10 +34,13 @@ class IngredientListRyclerViewAdapter(private val context: Context, private var 
                             selectedList.add(it)
                         }
                     ingredientList[position].isChecked = isChecked
+                   // posList.add(position)
+
                 } else {
                     //Toast.makeText(context, "NOT checked", Toast.LENGTH_SHORT).show()
                     selectedList.remove(ingredient)
                     ingredientList[position].isChecked = isChecked
+                   // posList.removeAt(position)
 
                 }
             }
