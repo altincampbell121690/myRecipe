@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 
 import com.example.myrecipe.R
+import com.example.myrecipe.persona
 import com.example.myrecipe.services.DataServices
 import com.example.myrecipe.utils.INGREDIENTS
 
@@ -23,8 +24,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onEnterClicked(view:View){
-        val intentPantry = Intent(this,AddToPantry::class.java)
-        startActivity(intentPantry)
+        val intentPersona = Intent(this,persona::class.java)
+        startActivity(intentPersona)
     }
 
    /* fun getIngredientListFull(context: Context, fileName:String){
