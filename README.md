@@ -13,6 +13,8 @@
 ## Overview
 ### Description
 Recommends recipes based on what you have in your kitchen
+SPOONACULAR was used in this application
+https://spoonacular.com/food-api
 
 ### App Evaluation
 - **Category:** Diet/ Health
@@ -53,6 +55,7 @@ Recommends recipes based on what you have in your kitchen
 
 ### [BONUS] GIF
 https://i.imgur.com/T5TArCJ.mp4
+<br>
 https://i.imgur.com/0ge7rAu.mp4
 
 
