@@ -54,6 +54,9 @@ Recommends recipes based on what you have in your kitchen
 ### [BONUS] GIF
 https://imgur.com/a/1W4Ps77
 <img src="https://i.imgur.com/T5TArCJ.gif" width=200>
+<img src="https://i.imgur.com/T5TArCJ.mp4" width=200>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/QiRUoDw"><a href="//imgur.com/a/QiRUoDw">myrecipe1</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 <img src="https://i.imgur.com/FKTaZha.gif" width=200>
 
 
