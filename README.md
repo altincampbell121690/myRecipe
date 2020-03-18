@@ -7,6 +7,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
+1. [Wireframes](#Wireframes)
 1. [GIF](#GIF)
 
 ## Overview
@@ -47,9 +48,12 @@ Recommends recipes based on what you have in your kitchen
 * display recipes page
 * detail recipe info page
 
+### Digital Wireframes & Mockups
+<img src="https://i.imgur.com/XLJMkyh.png" height=200>
+
 ### [BONUS] GIF
 https://imgur.com/a/1W4Ps77
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/1W4Ps77" data-context="false" ><a href="//imgur.com/a/1W4Ps77"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/1W4Ps77"><a href="//imgur.com/a/1W4Ps77">myRecipe APP</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<img src="https://i.imgur.com/T5TArCJ.gif" width=200>
+<img src="https://i.imgur.com/FKTaZha.gif" width=200>
 
 
