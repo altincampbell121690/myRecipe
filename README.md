@@ -12,8 +12,8 @@
 
 ## Overview
 ### Description
-Recommends recipes based on what you have in your kitchen
-SPOONACULAR was used in this application
+Recommends recipes based on what you have in your kitchen <br>
+SPOONACULAR was used in this application <br>
 https://spoonacular.com/food-api
 
 ### App Evaluation
